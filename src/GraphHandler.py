@@ -29,7 +29,7 @@ class FBGraphHandler():
         self.client_secret = client_secret
         self.version = version
 
-    def GenerateAuthURL(self, redirect_uri : str, scopes : Union[list[str], str]) -> str:
+    def GenerateAuthURL(self, redirect_uri : str, scopes : Union[str, 'list[str]']) -> str:
         """_summary_
                 This method generates auth url for users to complate auth process and get access code.
         Args:
@@ -37,10 +37,10 @@ class FBGraphHandler():
 
             scopes (str or list[str]): permissions that you need from facebook to perform actions on Graph endpoints..example: public_profile,email,read_insights,pages_show_list,instagram_basic,instagram_manage_comments......and more..
         """
-        if type(scopes) == list:
+        if isinstance(scopes, list):
             scopes_ = ','.join(scopes)
-        elif type(scopes) == str:
-            scopes_ =  scopes.replace(' ', '')
+        elif isinstance(scopes, str):
+            scopes_ = scopes.replace(' ', '')
         self.redirect_uri = redirect_uri
         self.scopes = scopes_
         self.state = secrets.token_hex(16)
@@ -207,7 +207,7 @@ class FBGraphHandler():
         return facebook_post_id
 
 
-    def PostToFacebook(self, text : str, media_urls : Union[list[str], str], access_token : str, id : str, isVideo : bool, title='') -> str:
+    def PostToFacebook(self, text : str, media_urls : Union['list[str]', str], access_token : str, id : str, isVideo : bool, title='') -> str:
         """_summary_
 
         Args:

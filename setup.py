@@ -3,7 +3,7 @@ import codecs
 import os
 
 
-VERSION = '0.0.6'
+VERSION = '0.1.0'
 DESCRIPTION = 'Unofficial Facebook Graph API Handler'
 LONG_DESCRIPTION = 'A Facebook Graph API Handler to ease the use of Meta Graph APIs.'
 
@@ -20,7 +20,7 @@ setup(
     install_requires=['requests==2.31.0', 'typing==3.7.4.3'],
     keywords=['python', 'facebook', 'graph api', 'social media', 'instagram', 'meta', 'meta api'],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

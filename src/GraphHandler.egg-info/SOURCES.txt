@@ -1,3 +1,5 @@
+LICENSE
+README.md
 setup.py
 src/GraphHandler.py
 src/GraphHandler.egg-info/PKG-INFO
