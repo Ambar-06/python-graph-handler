@@ -1,5 +1,5 @@
-# python-graph-handler
-# FBGraphHandler
+# GraphHandler
+## FBGraphHandler
 
 FBGraphHandler is a Python library that simplifies the process of interacting with Facebook's Graph API. It provides methods for authenticating users, retrieving user details, posting text and video feeds, and more.
 
