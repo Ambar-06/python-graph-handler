@@ -3,7 +3,7 @@ import codecs
 import os
 
 
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 DESCRIPTION = 'Unofficial Facebook Graph API Handler'
 # LONG_DESCRIPTION = 'A Facebook Graph API Handler to ease the use of Meta Graph APIs.'
 with open('README.md', 'r', encoding='utf-8') as f:

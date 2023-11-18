@@ -16,7 +16,7 @@ class FBGraphHandler():
         self.FacebookPhotoUploadURL = "https://graph.facebook.com/v{}/{}/photos"
         self.FacebookFeedURL = "https://graph.facebook.com/{}/feed"
 
-    def Config(self, client_id : str, client_secret : str, version='14.0') -> None:
+    def Config(self, *, client_id : str, client_secret : str, version='14.0') -> None:
         """_summary_
                 This method configure the GraphHandler library to use the provided credentials and version.
         Args:
@@ -29,7 +29,7 @@ class FBGraphHandler():
         self.client_secret = client_secret
         self.version = version
 
-    def GenerateAuthURL(self, redirect_uri : str, scopes : Union[str, 'list[str]']) -> str:
+    def GenerateAuthURL(self, *, redirect_uri : str, scopes : Union[str, 'list[str]']) -> str:
         """_summary_
                 This method generates auth url for users to complate auth process and get access code.
         Args:
@@ -48,7 +48,7 @@ class FBGraphHandler():
         
         return self.AuthURL_
     
-    def ExchangeCodewithToken(self, code : str) -> str:
+    def ExchangeCodewithToken(self, *, code : str) -> str:
         """_summary_
                 This method exchanges AuthCode with AccessToken
         Args:
@@ -186,7 +186,7 @@ class FBGraphHandler():
     
         
     @staticmethod
-    def post_video_facebook(text, video_url, token, page_id, version, url, title) -> str:
+    def post_video_facebook(text, video_url, *, token, page_id, version, url, title) -> str:
         """
         This Function Posts the video to Facebook
         """
@@ -230,7 +230,7 @@ class FBGraphHandler():
                 urls_ = []
                 urls_.append(media_urls)   
         if isVideo:
-            self.post_id = self.post_video_facebook(text, urls_[0], access_token, id, self.version, self.FacebookVideoUploadURL, title)
+            self.post_id = self.post_video_facebook(text, urls_[0], token=access_token, page_id=id, version=self.version, url=self.FacebookVideoUploadURL, title=title)
         else:
             medias = [{'media_fbid': self.facebook_upload(
                 url, access_token, id, self.version, self.FacebookPhotoUploadURL)} for url in urls_]
